@@ -89,7 +89,7 @@ export async function deleteVideo(req,res)
         if(user._id==video.user_id)
         {
             await cloudinary.uploader.destroy(video.thubmailId)
-            await cloudinary.uploader.destroy(video.videoId)
+            await cloudinary.uploader.destroy(video.videoId,{resource_type:"video"})
             const DeletedVideo=await videoModel.findByIdAndDelete(videoId);
             res.status(200).json([{message:"video deleted"},{deletedVideo:DeletedVideo}])
         }
