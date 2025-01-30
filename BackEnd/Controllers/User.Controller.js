@@ -62,3 +62,12 @@ export async function login(req,res) {
         return res.status(500).json({message:error})
     }
 }
+
+export async function createChannel(req,res) {
+    try 
+    {
+        
+    } catch (error) {
+        return res.status(500).json({message:error})   
+    }
+}
