@@ -66,8 +66,19 @@ export async function login(req,res) {
 export async function createChannel(req,res) {
     try 
     {
+        const {channelName}=req.body;
+        const id=req.user._id;
+        const uploadedImage=await cloudinary.uploader.upload(req.files.logo.tempFilePath)
+        const user = await userModel.findByIdAndUpdate(id, { 
+            logoUrl:uploadedImage.secure_url,
+            logoId:uploadedImage.public_id,
+            channelName:channelName
+         });
+            const savedUser=await user.save();
+            res.status(200).json([{message:"user updated"},{user:savedUser}])
         
     } catch (error) {
+        console.log(error)
         return res.status(500).json({message:error})   
     }
 }

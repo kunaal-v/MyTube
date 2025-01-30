@@ -2,7 +2,8 @@ import jwt from "jsonwebtoken";
 import userModel from "../Models/User.Model.js";
 export function verifyToken(req, res, next) {
     
-    // Check if the authorization header is present
+    try {
+        // Check if the authorization header is present
     if (req.headers && req.headers.authorization) {
         const token = req.headers.authorization.split(" ")[1];
         // check if the token is not present in the header, if not then return with message
@@ -29,5 +30,9 @@ export function verifyToken(req, res, next) {
     } else {
         // If no authorization header is provided
         return res.status(401).json({ message: "Authorization header is missing" });
+    }
+        
+    } catch (error) {
+        return res.status(500).json({message:error})
     }
 }
