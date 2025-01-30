@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv';
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
-import userRouter from "../BackEnd/Routes/User.Routes.js"
+import userRouter from "../BackEnd/Routes/User.Routes.js";
+import videoRoutes from "./Routes/Video.Routes.js";
 dotenv.config();
 
 
@@ -23,4 +24,5 @@ app.use(fileUpload({
 }))
 
 app.use(userRouter);
+app.use(videoRoutes);
 export default app;
