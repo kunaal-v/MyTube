@@ -79,3 +79,25 @@ export async function updateVideo(req,res){
        return res.status(500).json({message:error})
     }
 }
+
+export async function deleteVideo(req,res)
+{
+    try {
+        const user=req.user;
+        const videoId=req.params.id;
+        const video=await videoModel.findById(videoId);
+        if(user._id==video.user_id)
+        {
+            await cloudinary.uploader.destroy(video.thubmailId)
+            await cloudinary.uploader.destroy(video.videoId)
+            const DeletedVideo=await videoModel.findByIdAndDelete(videoId);
+            res.status(200).json([{message:"video deleted"},{deletedVideo:DeletedVideo}])
+        }
+        else{
+            return res.status(404).json({message:"you don't have permisson to delete video"})
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({message:error})
+    }
+}
