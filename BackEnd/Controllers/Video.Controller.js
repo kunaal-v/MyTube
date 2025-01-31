@@ -101,3 +101,58 @@ export async function deleteVideo(req,res)
         return res.status(500).json({message:error})
     }
 }
+
+
+export async function likeVideo(req,res) {
+    try {
+        const user=req.user;
+        const videoId=req.params.id;
+        const video= await videoModel.findById(videoId);
+        
+        if(video.likedBy.includes(user._id))
+        {
+            return res.status(400).json({message:"already liked"});
+        }
+        if(video.dislikedBy.includes(user._id))
+        {
+            video.dislikes--;
+            video.dislikedBy=video.dislikedBy.filter(id=>id.toString()!=user._id)
+        
+        }
+        video.likedBy.push(user._id);
+        video.likes++;
+        const savedVideo=await video.save();
+        return res.status(200).json([{message:"video liked"},{video:savedVideo}])
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({message:error});
+    }
+    
+}
+
+export async function dislikeVideo(req,res) {
+    try {
+        const user=req.user;
+        const videoId=req.params.id;
+        const video= await videoModel.findById(videoId);
+        
+        if(video.dislikedBy.includes(user._id))
+        {
+            return res.status(400).json({message:"already disliked"});
+        }
+        if(video.likedBy.includes(user._id))
+            {
+                video.likes--;
+                video.likedBy=video.likedBy.filter(id=>id.toString()!=user._id)
+            }
+        video.dislikedBy.push(user._id);
+        video.dislikes++;
+        const savedVideo=await video.save();
+        return res.status(200).json([{message:"video disliked"},{video:savedVideo}])
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({message:error});
+    }
+    
+}
+

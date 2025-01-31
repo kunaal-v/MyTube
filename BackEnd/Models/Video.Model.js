@@ -11,7 +11,9 @@ const videoSchema= new mongoose.Schema({
     category:{type:String,required:true},
     tags:[{type:String}],
     likes:{type:Number,default:0},
+    likedBy:[{type:String}],
     dislikes:{type:Number,default:0},
+    dislikedBy:[{type:String}],
     views:{type:Number,default:0}
     },{timestamps:true})
 
