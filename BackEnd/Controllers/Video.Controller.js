@@ -157,4 +157,18 @@ export async function dislikeVideo(req,res) {
 }
 
 
+export async function views(req,res) {
+    try {
+        const videoId=req.params.id;
+        const video=await videoModel.findById(videoId);
+        video.views++;
+        const savedvideo=await video.save();
+        return res.status(200).json([{messgae:"views updated"},{video:savedvideo}])
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({message:error})
+    }
+    
+}
+
 
