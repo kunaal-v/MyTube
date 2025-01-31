@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
 import userRouter from "../BackEnd/Routes/User.Routes.js";
 import videoRoutes from "./Routes/Video.Routes.js";
+import commentRoutes from "./Routes/Comment.Routes.js";
 dotenv.config();
 
 
@@ -25,4 +26,5 @@ app.use(fileUpload({
 
 app.use(userRouter);
 app.use(videoRoutes);
+app.use(commentRoutes)
 export default app;
