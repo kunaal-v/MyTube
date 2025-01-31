@@ -10,6 +10,7 @@ const userSchema=new mongoose.Schema({
     logoId:{type:String},
     channelName:{type:String},
     subscribers:{type:Number,default:0},
+    subscribedBy:[{type:String}],
     subscribedChannels:[{type:mongoose.Schema.Types.ObjectId,ref:"User"}]
     
 },{timestamps:true})
