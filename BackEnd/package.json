@@ -8,10 +8,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node Server.js"
   },
+  "engines": {
+  "node": "16.x"
+},
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.20.3",
     "cloudinary": "^2.5.1",
     "dotenv": "^16.4.7",
