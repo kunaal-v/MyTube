@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
 import userModel from "../Models/User.Model.js";
 import dotenv from "dotenv";
