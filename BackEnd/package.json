@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon Server.js",
+    "start": "nodemon Server.js",
     "start:prod": " nodemon Server.js"
   },
   "author": "",
