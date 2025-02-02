@@ -1,5 +1,5 @@
 import express from "express";
-import { addVideo, updateVideo,deleteVideo, likeVideo,dislikeVideo,views } from "../Controllers/Video.Controller.js";
+import { addVideo, updateVideo,deleteVideo, likeVideo,dislikeVideo,views, fetchAllVideos } from "../Controllers/Video.Controller.js";
 import { verifyToken } from "../MiddleWares/VerifyToken.js";
 
 const videoRoutes=express.Router();
@@ -9,5 +9,6 @@ videoRoutes.put("/:id",verifyToken,updateVideo);
 videoRoutes.delete("/:id",verifyToken,deleteVideo);
 videoRoutes.put("/like/:id",verifyToken,likeVideo);
 videoRoutes.put("/dislike/:id",verifyToken,dislikeVideo);
-videoRoutes.put("/views/:id",views)
+videoRoutes.put("/views/:id",views);
+videoRoutes.get("/allVideos",fetchAllVideos)
 export default videoRoutes;

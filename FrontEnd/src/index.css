@@ -147,3 +147,26 @@ button:focus-visible {
   background-color: rgb(241, 241, 241);
   border-radius: 10px;
 }
+
+.hamburger_menu{
+  padding: 12px;
+  font-size: 20px;
+}
+ul {
+  padding: 0;
+  list-style: none;
+}
+ul li {
+  border-radius: 5px;
+  padding: 5px;
+}
+li:hover{
+  background-color: rgb(238, 238, 238);
+}
+
+.Body{
+  background-color: yellow;
+}
+.Body_Body{
+  background-color: blue;
+}

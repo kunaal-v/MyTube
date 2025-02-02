@@ -171,4 +171,16 @@ export async function views(req,res) {
     
 }
 
+export function fetchAllVideos(req,res)
+{
+    try {
+        const videos=videoModel.find();
+        return res.status(200).json({allvideos:videos});
+        
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({message:error})
+    }
+}
+
 

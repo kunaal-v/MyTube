@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/MyTube_Logo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faHouse, faClockRotateLeft, faCirclePlay, faBarsProgress, faUsersRectangle, faTv,faGraduationCap, faClock,faThumbsUp, faDownload,faArrowTrendUp,faNewspaper, faTrophy,faTowerBroadcast,faClapperboard,faMusic} from '@fortawesome/free-solid-svg-icons';
 import { faBars} from '@fortawesome/free-solid-svg-icons';
-function Header (){
+import PropTypes from "prop-types";
+Header.propTypes={
+    toggleFunction:PropTypes.func,
+};
+function Header (props){
+
     return (
       <> 
         <div className='Navbar'>
             <div style={{display:"flex", alignItems:"center"}}>
             <div>
-                <button className="Menu_btn">
+                <button className="Menu_btn" onClick={props.toggleFunction}>
                 <FontAwesomeIcon icon={faBars} size="2xl" style={{color: "#2b435b",}} />
                 </button>
                 

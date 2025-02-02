@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
 import userRouter from "../BackEnd/Routes/User.Routes.js";
+import cors from "cors"
 import videoRoutes from "./Routes/Video.Routes.js";
 import commentRoutes from "./Routes/Comment.Routes.js";
 dotenv.config();
@@ -17,7 +18,7 @@ mongoose.connect(process.env.MONGO_URI)
 .catch((err)=>{
     console.log(err);
 })
-
+app.use(cors())
 app.use(bodyParser.json());
 app.use(fileUpload({
     useTempFiles:true,

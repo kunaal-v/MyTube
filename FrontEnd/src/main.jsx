@@ -2,7 +2,6 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
-import Header from './Components/Header.jsx'
 import SignUp from './Components/SignUp.jsx'
 import CreateChannel from './Components/CreateChannel.jsx'
 const appRouter=createBrowserRouter(
@@ -12,8 +11,8 @@ const appRouter=createBrowserRouter(
       element:<App/>
     },
     {
-      path:"/header",
-      element:<Header/>
+      path:"/home",
+      element:<App/>
     },
     {
       path:"/signUp",
