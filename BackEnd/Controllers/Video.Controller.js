@@ -13,13 +13,14 @@ cloudinary.config({
 export async function addVideo(req,res){
 try {
     const {category,tags,title,description}=req.body;
+    const user=req.user;
     const uploadedVideo=await cloudinary.uploader.upload(req.files.video.tempFilePath,{
         resource_type:"video"
     })
     const uploadedThumbnail=await cloudinary.uploader.upload(req.files.thumbnail.tempFilePath)
     const newVideo= new videoModel({
 
-        user_id:req.user._id,
+        user_id:user._id,
         title:title,
         description:description,
         category:category,
@@ -174,7 +175,7 @@ export async function views(req,res) {
 export async function fetchAllVideos(req,res)
 {
     try {
-        const videos=await videoModel.find();
+        const videos=await videoModel.find().populate("user_id","channelName logoUrl");
         console.log(videos)
         return res.status(200).json({allvideos:videos});
         
