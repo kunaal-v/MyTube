@@ -172,21 +172,19 @@ export async function views(req,res) {
     
 }
 
-export async function fetchAllVideos(req,res)
-{
+export async function fetchAllVideos(req, res) {
     try {
-        const videos=await videoModel.find().populate("user_id","channelName logoUrl");
-        console.log(videos)
-        if(videos.length==0)
-        {
-            return res.status(200).json({allvideos:"empty"});
+        const videos = await videoModel.find().populate("user_id", "channelName logoUrl");
+        console.log(videos);
+        if (videos.length === 0) {
+            return res.status(200).json({ allvideos: "empty" });
         }
-        return res.status(200).json({allvideos:videos});
-        
+        return res.status(200).json({ allvideos: videos });
     } catch (error) {
-        console.log(error);
-        return res.status(500).json({message:error})
+        console.error('Error fetching all videos:', error); // more detailed error logging
+        return res.status(500).json({ message: error.message });
     }
 }
+
 
 
