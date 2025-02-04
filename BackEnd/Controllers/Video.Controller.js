@@ -177,6 +177,10 @@ export async function fetchAllVideos(req,res)
     try {
         const videos=await videoModel.find().populate("user_id","channelName logoUrl");
         console.log(videos)
+        if(videos.length==0)
+        {
+            return res.status(200).json({allvideos:"empty"});
+        }
         return res.status(200).json({allvideos:videos});
         
     } catch (error) {
