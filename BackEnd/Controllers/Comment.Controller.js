@@ -23,7 +23,7 @@ export async function addComment(req,res) {
 export async function updateComment(req, res) {
     try {
         const user = req.user;
-        const user_id = user._id;
+        const user_id = user._id.toString();
         const commentId = req.params.id;
 
         // Find the comment by ID
