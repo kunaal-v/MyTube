@@ -20,28 +20,39 @@ export async function addComment(req,res) {
     
 }
 
-export async function updateComment(req,res) {
-
+export async function updateComment(req, res) {
     try {
-        const user=req.user;
-        const user_id=user._id;
-        const commentId=req.params.id;
-        const comment=await commentModel.findById(commentId);
-        console.log(user._id,comment.user_id._id);
-        const userID=comment.user_id._id;
-        if(user_id!=userID)
-        {
-            return res.status(404).json({message:"you are not authorized to delete this comment",user_id,userID})
+        const user = req.user;
+        const user_id = user._id;
+        const commentId = req.params.id;
+
+        // Find the comment by ID
+        const comment = await commentModel.findById(commentId);
+
+        if (!comment) {
+            return res.status(404).json({ message: "Comment not found" });
         }
-        comment.text=req.body.text;
-        const updatedComment=await comment.save();
-        return res.status(200).json([{message:"comment updated"},{comment:updateComment}])
+
+        // Ensure comment belongs to the authenticated user
+        const userID = comment.user_id._id.toString();  // Convert to string to avoid type issues
+        if (user_id !== userID) {
+            return res.status(403).json({ message: "You are not authorized to update this comment" });
+        }
+
+        // Update the comment's text
+        comment.text = req.body.text;
+
+        // Save the updated comment
+        const updatedComment = await comment.save();
+
+        // Return the updated comment as part of the response
+        return res.status(200).json([{ message: "Comment updated successfully" }, { comment: updatedComment }]);
     } catch (error) {
         console.log(error);
-        return res.status(500).json({message:error})
+        return res.status(500).json({ message: error.message || "Server error" });
     }
-    
 }
+
 
 export async function deleteComment(req,res) {
     try {
