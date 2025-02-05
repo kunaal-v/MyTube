@@ -131,6 +131,7 @@ export async function userInfo(req,res) {
         const user=req.user;
         const userId=user._id;
         const userInfo= await userModel.findById(userId);
+        console.log(userInfo)
         if(!userInfo)
         {
             return res.status(400).json({message:"user not found"})
