@@ -123,3 +123,22 @@ export async function unsubscribeChannel(req,res){
         return res.status(500).json({message:error})
     }
 }
+
+
+export async function userInfo(req,res) {
+
+    try {
+        const user=req.user;
+        const userId=user._id;
+        const userInfo= await userModel.findById(userId);
+        if(!userInfo)
+        {
+            return res.status(400).json({message:"user not found"})
+        }
+        return res.status(200).json({user:userInfo})
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({message:error})
+    }
+    
+}
