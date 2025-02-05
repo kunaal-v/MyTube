@@ -24,12 +24,14 @@ export async function updateComment(req,res) {
 
     try {
         const user=req.user;
+        const user_id=user._id;
         const commentId=req.params.id;
         const comment=await commentModel.findById(commentId);
         console.log(user._id,comment.user_id._id);
-        if(user._id!=comment.user_id._id)
+        const userID=comment.user_id._id;
+        if(user_id!=userID)
         {
-            return res.status(404).json({message:"you are not authorized to delete this comment"})
+            return res.status(404).json({message:"you are not authorized to delete this comment",user_id,userID})
         }
         comment.text=req.body.text;
         const updatedComment=await comment.save();
