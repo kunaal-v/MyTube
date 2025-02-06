@@ -13,10 +13,10 @@ cloudinary.config({
 })
 
 
-import bcrypt from 'bcrypt';
-import mongoose from 'mongoose';
-import cloudinary from 'cloudinary';  // Ensure you have cloudinary set up correctly
-import userModel from '../models/User.Model.js';  // Import your user model
+// import bcrypt from 'bcrypt';
+// import mongoose from 'mongoose';
+// import cloudinary from 'cloudinary';  // Ensure you have cloudinary set up correctly
+// import userModel from '../models/User.Model.js';  // Import your user model
 
 export async function register(req, res) {
     try {
