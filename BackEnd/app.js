@@ -32,6 +32,7 @@ app.use(cors(corsOptions)); // Apply CORS middleware with options
 // Body parsing and file upload handling
 app.use(bodyParser.json());
 app.use(fileUpload({
+    limits: { fileSize: 100 * 1024 * 1024 }, 
   useTempFiles: true,
   tempFileDir: '/tmp/', // Updated to a directory that's accessible
 }));
