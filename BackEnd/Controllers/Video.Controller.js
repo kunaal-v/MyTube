@@ -31,7 +31,7 @@ try {
         thubmailId:uploadedThumbnail.public_id,
     })
     const savedVideo=await newVideo.save();
-    res.status(200).json([{message:"video uploaded"},{video:savedVideo}])
+    return res.status(200).json([{message:"video uploaded"},{video:savedVideo}])
     
 } catch (error) {
  console.log(error)
@@ -70,7 +70,7 @@ export async function updateVideo(req,res){
             tags:tags.split(",")
             },{new:true})
             const savedVideo= await updatedVideo.save();
-            res.status(200).json([{message:"video updated"},{video:savedVideo}])
+            return res.status(200).json([{message:"video updated"},{video:savedVideo}])
         }
         else{
             return res.status(404).json({message:"you don't have permisson to update video"})
@@ -92,7 +92,7 @@ export async function deleteVideo(req,res)
             await cloudinary.uploader.destroy(video.thubmailId)
             await cloudinary.uploader.destroy(video.videoId,{resource_type:"video"})
             const DeletedVideo=await videoModel.findByIdAndDelete(videoId);
-            res.status(200).json([{message:"video deleted"},{deletedVideo:DeletedVideo}])
+            return res.status(200).json([{message:"video deleted"},{deletedVideo:DeletedVideo}])
         }
         else{
             return res.status(404).json({message:"you don't have permisson to delete video"})
