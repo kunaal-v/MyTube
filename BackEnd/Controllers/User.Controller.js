@@ -13,37 +13,52 @@ cloudinary.config({
 })
 
 
-export async function register(req,res)
-{
-    
-    try
-    {
-        const uploadedImage=await cloudinary.uploader.upload(req.files.profile.tempFilePath)
-        const user=await userModel.find({email:req.body.email});
-        if(user.length>0)
-        {
-            return res.status(409).json({message:"user already exist with this email address"})
+import bcrypt from 'bcrypt';
+import mongoose from 'mongoose';
+import cloudinary from 'cloudinary';  // Ensure you have cloudinary set up correctly
+import userModel from '../models/User.Model.js';  // Import your user model
+
+export async function register(req, res) {
+    try {
+        // Ensure that profile image exists in the request (optional)
+        if (!req.files || !req.files.profile) {
+            return res.status(400).json({ message: "Profile image is required." });
         }
-        const hashPass=await bcrypt.hash(req.body.password,10);
-        
-        const newUser= new userModel({
-            _id: new mongoose.Types.ObjectId,
-            email:req.body.email,
-            phone:req.body.phone,
-            password:hashPass,
-            userName:req.body.userName,
-            profile:uploadedImage.secure_url,
-        })
-        const savedUser=await newUser.save();
-        res.status(200).json({newUser:savedUser})
-        
-    }
-    catch(err)
-    {
-        console.log(err);
-        res.status(500).json({message:err})
+
+        // Upload the profile image to Cloudinary
+        const uploadedImage = await cloudinary.uploader.upload(req.files.profile.tempFilePath);
+
+        // Check if a user already exists with the provided email
+        const existingUser = await userModel.findOne({ email: req.body.email });
+        if (existingUser) {
+            return res.status(409).json({ message: "User already exists with this email address" });
+        }
+
+        // Hash the password before saving
+        const hashPass = await bcrypt.hash(req.body.password, 10);
+
+        // Create a new user object
+        const newUser = new userModel({
+            _id: new mongoose.Types.ObjectId(),
+            email: req.body.email,
+            phone: req.body.phone,
+            password: hashPass,
+            userName: req.body.userName,
+            profile: uploadedImage.secure_url,  // Store the Cloudinary URL of the profile image
+        });
+
+        // Save the new user to the database
+        const savedUser = await newUser.save();
+
+        // Respond with the saved user data (or you can customize this based on your needs)
+        res.status(201).json({ user: savedUser });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Something went wrong. Please try again." });
     }
 }
+
 
 export async function login(req,res) {
     try {
