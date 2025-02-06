@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,67 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+.SignUp_Page{
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to right, #ffde59,#e75555,#0c4897);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SignUp_form{
+  width: 50%;
+  height: 70vh;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 1px 1px 15px white;
+  
+}
+.SignUp_FormInputs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.Logo_Image{
+  height: 50px;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.SignUp_form input{
+  width: 80%;
+  padding: 10px;
+  border: none;
+  height: 50px;
+  /* background-color: rgb(247, 244, 244); */
+  border-radius: 19px;
+  overflow: hidden;
+  font-size: 17px;
+}
+.SignUp_form button{
+  /* height: 50px; */
+  padding: 10px;
+  border: none;
+  width: auto;
+  background-image: linear-gradient(to right, #ffde59,#e75555);
+  color: rgb(50, 47, 47);
+  border-radius: 20px;
+  font-size: 17px;
+}
+
+.Preview_Image{
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+}
+
+a{
+  color: black;
+  text-decoration: none;
 }
