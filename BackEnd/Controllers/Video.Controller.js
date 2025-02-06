@@ -43,7 +43,7 @@ export async function addVideo(req, res) {
 
     } catch (error) {
         console.error('Error uploading video:', error);
-        return res.status(500).json({ message: error.message || 'Internal Server Error' });
+        return res.status(500).json({ message: "error" || 'Internal Server Error' });
     }
 }
 
