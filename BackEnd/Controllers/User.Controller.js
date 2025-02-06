@@ -18,7 +18,7 @@ export async function register(req,res)
     
     try
     {
-        
+        const uploadedImage=await cloudinary.uploader.upload(req.files.profile.tempFilePath)
         const user=await userModel.find({email:req.body.email});
         if(user.length>0)
         {
@@ -31,7 +31,8 @@ export async function register(req,res)
             email:req.body.email,
             phone:req.body.phone,
             password:hashPass,
-            userName:req.body.userName
+            userName:req.body.userName,
+            profile:uploadedImage.secure_url,
         })
         const savedUser=await newUser.save();
         res.status(200).json({newUser:savedUser})
