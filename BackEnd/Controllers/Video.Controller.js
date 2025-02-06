@@ -10,34 +10,43 @@ cloudinary.config({
     api_key:process.env.API_KEY,
     api_secret:process.env.API_SECRET,
 })
-export async function addVideo(req,res){
-try {
-    const {category,tags,title,description}=req.body;
-    const user=req.user;
-    const uploadedVideo=await cloudinary.uploader.upload(req.files.video.tempFilePath,{
-        resource_type:"video"
-    })
-    const uploadedThumbnail=await cloudinary.uploader.upload(req.files.thumbnail.tempFilePath)
-    const newVideo= new videoModel({
+export async function addVideo(req, res) {
+    try {
+        const { category, tags, title, description } = req.body;
+        const user = req.user;
 
-        user_id:user._id,
-        title:title,
-        description:description,
-        category:category,
-        tags:tags.split(","),
-        videoUrl:uploadedVideo.secure_url,
-        videoId:uploadedVideo.public_id,
-        thubmailUrl:uploadedThumbnail.secure_url,
-        thubmailId:uploadedThumbnail.public_id,
-    })
-    const savedVideo=await newVideo.save();
-    return res.status(200).json([{message:"video uploaded"},{video:savedVideo}])
-    
-} catch (error) {
- console.log(error)
- return res.status(500).json({message:error})   
+        // Ensure the video and thumbnail files exist
+        if (!req.files.video || !req.files.thumbnail) {
+            return res.status(400).json({ message: 'Video or thumbnail missing' });
+        }
+
+        const uploadedVideo = await cloudinary.uploader.upload(req.files.video.tempFilePath, {
+            resource_type: "video"
+        });
+
+        const uploadedThumbnail = await cloudinary.uploader.upload(req.files.thumbnail.tempFilePath);
+
+        const newVideo = new videoModel({
+            user_id: user._id,
+            title: title,
+            description: description,
+            category: category,
+            tags: tags.split(","),
+            videoUrl: uploadedVideo.secure_url,
+            videoId: uploadedVideo.public_id,
+            thubmailUrl: uploadedThumbnail.secure_url,
+            thubmailId: uploadedThumbnail.public_id,
+        });
+
+        const savedVideo = await newVideo.save();
+        return res.status(200).json([{ message: "Video uploaded successfully" }, { video: savedVideo }]);
+
+    } catch (error) {
+        console.error('Error uploading video:', error);
+        return res.status(500).json({ message: error.message || 'Internal Server Error' });
+    }
 }
-}
+
 
 export async function updateVideo(req,res){
     try {
