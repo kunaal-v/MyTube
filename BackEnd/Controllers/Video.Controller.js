@@ -17,7 +17,7 @@ export async function addVideo(req, res) {
 
         // Ensure the video and thumbnail files exist
         if (!req.files.video || !req.files.thumbnail) {
-            return res.status(400).json({ message: req.files.video});
+            return res.status(400).json({ message: req.files});
         }
 
         const uploadedVideo = await cloudinary.uploader.upload(req.files.video.tempFilePath, {
