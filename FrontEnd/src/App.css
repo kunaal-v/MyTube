@@ -66,10 +66,15 @@
   gap: 5px;
 }
 .Logo_Image{
-  height: 50px;
-  aspect-ratio: 3/2;
-  object-fit: contain;
-  mix-blend-mode: multiply;
+  height: 70px;
+  width: 70px;
+  padding: 5px;
+  /* aspect-ratio: 3/2; */
+  /* object-fit: contain; */
+  /* mix-blend-mode: multiply; */
+  border: 2px solid #e75555;
+  border-radius: 50%;
+
 }
 
 .SignUp_form input{
@@ -102,4 +107,208 @@
 a{
   color: black;
   text-decoration: none;
+  border-radius: 10px;
+}
+
+.Dashboard_Page{
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+}
+
+.Profile{
+  width: 13%;
+  /* border: 5px solid rgb(231, 228, 228); */
+  padding: 10px;
+  overflow: scroll;
+  margin-top: 20px;
+
+}
+
+.content{
+  width: 87%;
+  /* border: 1px solid black; */
+  padding: 10px;
+}
+
+.Navbar{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+.nav_btns{
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+.SignIn_btn,.CreateChannel_btn{
+  background-color: white;
+  border: 1px solid #0055ff;
+  color: #0055ff;
+  padding: 4px;
+  border-radius: 15px;
+  
+}
+#search_input{
+  border: 1px solid rgb(173, 171, 171);
+  padding: 5px;
+  border-radius: 25px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+  /* width: 500px; */
+  padding-left: 13px;
+  font-size: 20px;
+}
+#search_input:focus {
+  border: 1px solid #0055ff;
+  background-color: #e8fafb;  
+}
+
+.search_btn{
+  border: 1px solid rgb(173, 171, 171);
+  background-color: #f5f5f5;
+  padding: 5px;
+  padding-left:20px;
+  padding-right: 20px;
+  border-radius: 25px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  /* border-left: none; */
+  font-size: 20px;
+}
+.Menu_btn{
+  background-color: white;
+  border: none;
+  padding: 8px; 
+  margin-right: 15px;
+  
+}
+.Menu_btn:active{
+  background-color: rgb(241, 241, 241);
+  border-radius: 10px;
+}
+
+.profile_container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+ul li {
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+}
+ul li:hover{
+  background-color: #e75555
+}
+ul li:active{
+  background-color: #ecbf1c;
+}
+.HambourgeMenu{
+  width: 100%;
+}
+
+.Profile_container{
+display: flex;
+flex-direction: column; 
+border-right: 1px solid gray;
+height: 72vh;
+margin-top: 50px;
+padding-right: 10px;
+gap: 10px;
+padding-top: 20px;
+}
+.Profile_container a{
+  padding: 10px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  /* text-align: center; */
+}
+a:hover{
+  background-color: #e75555;
+  border-radius: 10px;
+}
+
+.active-a{
+  color: black;
+  text-decoration: none;
+  background-color: #e75555;
+  border-radius: 10px;
+}
+a:active{
+  background-color: #ecbf1c;
+  border-radius: 10px;
+}
+.UploadVideo_Page{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.UploadVideo_form{
+  width: 90%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+  box-shadow: 1px 1px 10px gray;
+  font-size: 15px;
+  border-radius: 20px;
+
+}
+.UploadVideo_form input,textarea,select{
+  padding: 10px;
+  height: 50px;
+  font-size: 15px;
+  /* border: none; */
+  border-radius: 10px;
+
+}
+.UploadVideo_form button{
+  height: 50px;
+  background-color: #e75555;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+}
+
+.ThumbnailPreview{
+      width: 100px;
+      height: 60px;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 5px;
+}
+
+li{list-style: none;}
+
+.MyVideo_container{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px;
+  /* background-color: blue; */
+}
+.MyVideo_container:hover{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  background-color: rgb(241, 241, 241);
 }

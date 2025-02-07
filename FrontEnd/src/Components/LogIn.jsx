@@ -37,7 +37,7 @@ function LogIn() {
             setEmail("");
             setPassword("")
             setIsLoading(false);
-            navigate("/logIn")
+            navigate("/dashboard")
         }
     })
     .catch(err=>{
