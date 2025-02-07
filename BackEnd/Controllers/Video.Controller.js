@@ -195,5 +195,17 @@ export async function fetchAllVideos(req, res) {
     }
 }
 
+export async function myVideos(req,res) {
+    try {
+        const user=req.user;
+        const myVideos=await videoModel.findById({user_id:user._id}).populate("user_id","channelName logoUrl");
+
+        return res.status(200).json({ allvideos: myVideos });
+    } catch (error) {
+        console.error('Error fetching all videos:', error); // more detailed error logging
+        return res.status(500).json({ message: error.message });
+    }
+}
+
 
 
