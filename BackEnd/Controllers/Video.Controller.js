@@ -198,7 +198,7 @@ export async function fetchAllVideos(req, res) {
 export async function myVideos(req,res) {
     try {
         const user=req.user;
-        const myVideos=await videoModel.find({user_id:user._id}).populate("user_id","channelName logoUrl");
+        const myVideos=await videoModel.find({user_id:user._id}).populate("user_id", "channelName logoUrl subscribers");
 
         return res.status(200).json({ allvideos: myVideos });
     } catch (error) {
