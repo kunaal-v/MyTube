@@ -183,7 +183,7 @@ export async function views(req,res) {
 
 export async function fetchAllVideos(req, res) {
     try {
-        const videos = await videoModel.find().populate("user_id", "channelName logoUrl");
+        const videos = await videoModel.find().populate("user_id", "channelName logoUrl subscribedBy");
         console.log(videos);
         if (videos.length === 0) {
             return res.status(200).json({ allvideos: "empty" });
