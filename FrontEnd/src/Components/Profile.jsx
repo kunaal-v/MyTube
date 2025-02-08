@@ -2,15 +2,23 @@ import { useEffect } from "react"
 import logo from "../assets/MyTube_Logo.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowRightFromBracket,faHouse,faUpload, faHouseUser} from '@fortawesome/free-solid-svg-icons';
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 function Profile() {
-
-    const location=useLocation();
-
+    const navigate=useNavigate();
     useEffect(()=>{
 
     })
+    function handleLogout()
+    {
+        const value=confirm("Are you sure?")
+        if(value)
+        {
+            localStorage.removeItem('accessToken');
+            navigate("/signUp")
+        }
+
+    }
   return (
     <div className="Dashboard_Page">
         <div className="Profile">
@@ -26,7 +34,7 @@ function Profile() {
                 <FontAwesomeIcon icon={faHouseUser} /> My Channel</Link><hr />
                 <Link to="/profile/uploadvideo"className={location.pathname==="/profile/uploadvideo"?"active-a":"a"}>
                 <FontAwesomeIcon icon={faUpload} /> Upload Video</Link><hr />
-                <Link to="/profile/logout"className={location.pathname==="/profile/logout"?"active-a":"a"}>
+                <Link onClick={handleLogout} className={location.pathname==="/profile/logout"?"active-a":"a"}>
                 <FontAwesomeIcon icon={faArrowRightFromBracket} />Logout   </Link><hr />
             </div>
         </div>

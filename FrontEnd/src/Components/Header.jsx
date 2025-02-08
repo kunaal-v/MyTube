@@ -52,7 +52,7 @@ function Header (){
         </div>
         <div className="nav_btns">
             {SignIn&&!isChannel&&<Link to="/CreateChannel"> <button className="CreateChannel_btn">CreateChannel+</button></Link>}
-            {SignIn? <Link to="/profile" ><button className="Profile_btn">
+            {SignIn? <Link to="/profile/mychannel" ><button className="Profile_btn">
                 {imageurl?<img src={imageurl} alt="" className="ProfileImage"/>:"U"}</button></Link>:<Link to="/signUp"><button className="SignIn_btn">Sign in</button></Link>}
         </div>
         
