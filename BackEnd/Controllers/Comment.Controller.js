@@ -1,30 +1,37 @@
 import mongoose from "mongoose";
 import commentModel from "../Models/Comment.Model.js";
 
-export async function addComment(req,res) {
+export async function addComment(req, res) {
     try {
-        
-        const user=req.user;
-        const videoId=req.params.id;
-        const {text}=req.body
-        if(req.body)
-        {
-            return res.status(500).json({body:req.body})
+        // Log the incoming request body
+        console.log("Received request body:", req.body); // Debugging line to check the body
+
+        // Check if `text` exists in the body
+        const { text } = req.body;
+        if (!text || text.trim() === "") {
+            return res.status(400).json({ message: "Comment text is required" });
         }
-        const newComment= new commentModel({
-            _id:new mongoose.Types.ObjectId,
-            user_id:user._id,
-            video_id:videoId,
-            text:text
-        })
-        const addedComment=await newComment.save();
-        return res.status(200).json([{message:"comment added"},{comment:addedComment}])
+
+        // Proceed with adding the comment if text is valid
+        const user = req.user;
+        const videoId = req.params.id;
+
+        const newComment = new commentModel({
+            _id: new mongoose.Types.ObjectId(),
+            user_id: user._id,
+            video_id: videoId,
+            text: text,
+        });
+
+        const addedComment = await newComment.save();
+
+        return res.status(200).json({ message: "Comment added successfully", comment: addedComment });
     } catch (error) {
-        console.log(error);
-        return res.status(500).json([{message:error},{body:req.body}]);
+        console.log("Error in adding comment:", error);
+        return res.status(500).json({ message: "Internal server error", error: error.message, body: req.body });
     }
-    
 }
+
 
 export async function updateComment(req, res) {
     try {
