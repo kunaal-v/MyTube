@@ -182,7 +182,7 @@ export async function views(req,res) {
         return res.status(200).json([{messgae:"views updated"},{video:savedvideo}])
     } catch (error) {
         console.log(error);
-        return res.status(500).json({message:error})
+        return res.status(500).json([{message:error},{error:"internal error"}])
     }
     
 }
