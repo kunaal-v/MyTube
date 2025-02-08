@@ -5,11 +5,12 @@ export async function addComment(req,res) {
     try {
         const user=req.user;
         const videoId=req.params.id;
+        const {text}=req.body
         const newComment= new commentModel({
             _id:new mongoose.Types.ObjectId,
             user_id:user._id,
             video_id:videoId,
-            text:req.body.text
+            text:text
         })
         const addedComment=await newComment.save();
         return res.status(200).json([{message:"comment added"},{comment:addedComment}])
