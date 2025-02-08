@@ -174,6 +174,9 @@ export async function views(req,res) {
             return res.status(400).json({ message: 'Invalid video ID' });
           }
         const video=await videoModel.findById(videoId);
+        if (!mongoose.Types.ObjectId.isValid(videoId)) {
+            return res.status(400).json({ message: 'Invalid video ID' });
+          }
         video.views++;
         const savedvideo=await video.save();
         return res.status(200).json([{messgae:"views updated"},{video:savedvideo}])
