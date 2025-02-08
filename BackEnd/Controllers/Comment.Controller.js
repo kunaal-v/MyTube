@@ -3,6 +3,7 @@ import commentModel from "../Models/Comment.Model.js";
 
 export async function addComment(req,res) {
     try {
+        return res.status(500).json({body:req.body})
         const user=req.user;
         const videoId=req.params.id;
         const {text}=req.body
