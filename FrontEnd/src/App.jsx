@@ -7,7 +7,6 @@ import Profile from "./Components/Profile";
 import MyVideos from "./Components/MyVideos";
 import MyChannel from "./Components/MyChannel";
 import UploadVideo from "./Components/UploadVideo";
-import Logout from "./Components/Logout";
 import VideoDetails from "./Components/VideoDetails";
 import CreateChannel from "./Components/CreateChannel";
 import AllVideos from "./Components/AllVideos";
@@ -25,8 +24,7 @@ const myRoutes=createBrowserRouter([
   {path:"/profile",element:<Profile/>,children:[
     {path:"mychannel",element:<MyChannel/>},
     {path:"myvideos",element:<MyVideos/>},
-    {path:"uploadvideo",element:<UploadVideo/>},
-    {path:"logout",element:<Logout/>}
+    {path:"uploadvideo",element:<UploadVideo/>}
   ]},
   
 ]);

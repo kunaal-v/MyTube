@@ -117,7 +117,22 @@ function VideoDetails() {
     })
       .catch(err=>console.log(err))
   }, [params.id, video._id,render]); // Re-run effect when video ID changes
+  useEffect(()=>{
+    const timeOut=setTimeout(() => {
+      axios.get(`https://mytube-jjn3.onrender.com/views/${params.id}`)
+        .then(res => {
+          console.log(res);
+          setRender(!render)
+              })
+        .catch(err => {
+          console.log("Error fetching view count:", err);
+        });
+    }, 10000); 
 
+    return ()=>{
+      clearTimeout(timeOut);
+    }
+  },[params.id,render])
   return (
     <div >
       {video.length !== 0 && (

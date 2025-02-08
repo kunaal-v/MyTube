@@ -170,6 +170,9 @@ export async function dislikeVideo(req,res) {
 export async function views(req,res) {
     try {
         const videoId=req.params.id;
+        if (!mongoose.Types.ObjectId.isValid(videoId)) {
+            return res.status(400).json({ message: 'Invalid video ID' });
+          }
         const video=await videoModel.findById(videoId);
         video.views++;
         const savedvideo=await video.save();

@@ -478,7 +478,7 @@ li{list-style: none;}
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  background-color: #0055ff;
+  /* background-color: #0055ff; */
 }
 .video_Page_preview{
   width: 400px;
