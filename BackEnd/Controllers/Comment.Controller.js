@@ -16,7 +16,7 @@ export async function addComment(req,res) {
         return res.status(200).json([{message:"comment added"},{comment:addedComment}])
     } catch (error) {
         console.log(error);
-        return res.status(500).json({message:error+req.body});
+        return res.status(500).json([{message:error},{body:req.body}]);
     }
     
 }
