@@ -87,7 +87,7 @@ export async function deleteComment(req,res) {
 export async function fetchcommentByVideo(req,res) {
     try {
         const videoId=req.params.id;
-        const comments=await commentModel.find({video_id:videoId}).populate("user_id","userName logoUrl")
+        const comments=await commentModel.find({video_id:videoId}).populate("user_id","userName profile")
         return res.status(200).json([{message:"all Comments"},{comments:comments}])
         
     } catch (error) {
