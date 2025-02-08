@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import logo from "../assets/MyTube_Logo.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faArrowRightFromBracket,faHouse, faVideo,faUpload} from '@fortawesome/free-solid-svg-icons';
+import {faArrowRightFromBracket,faHouse,faUpload, faHouseUser} from '@fortawesome/free-solid-svg-icons';
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 function Profile() {
@@ -20,10 +20,10 @@ function Profile() {
             </div>
             <div className="Profile_container">
                 <hr />
+                <Link to="/dashboard"className={location.pathname==="/profile/myvideos"?"active-a":"a"}>
+                <FontAwesomeIcon icon={faHouse} /> Home</Link><hr />
                 <Link to="/profile/mychannel"className={location.pathname==="/profile/mychannel"?"active-a":"a"}>
-                <FontAwesomeIcon icon={faHouse} /> My Channel</Link><hr />
-                <Link to="/profile/myvideos"className={location.pathname==="/profile/myvideos"?"active-a":"a"}>
-                <FontAwesomeIcon icon={faVideo} /> My Videos</Link><hr />
+                <FontAwesomeIcon icon={faHouseUser} /> My Channel</Link><hr />
                 <Link to="/profile/uploadvideo"className={location.pathname==="/profile/uploadvideo"?"active-a":"a"}>
                 <FontAwesomeIcon icon={faUpload} /> Upload Video</Link><hr />
                 <Link to="/profile/logout"className={location.pathname==="/profile/logout"?"active-a":"a"}>

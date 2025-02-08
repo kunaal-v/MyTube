@@ -1,22 +1,34 @@
-import { useEffect } from "react"
-import logo from "../assets/MyTube_Logo.png"
+import { useEffect, useState } from "react"
+// import logo from "../assets/MyTube_Logo.png"
 import Header from "./Header"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faClockRotateLeft, faCirclePlay, faBarsProgress, faUsersRectangle, faTv,faGraduationCap, faClock,faThumbsUp, faDownload,faArrowTrendUp,faNewspaper, faTrophy,faTowerBroadcast,faClapperboard,faMusic} from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faClockRotateLeft, faCirclePlay, faBarsProgress, faBars,faUsersRectangle, faTv,faGraduationCap, faClock,faThumbsUp, faDownload,faArrowTrendUp,faNewspaper, faTrophy,faTowerBroadcast,faClapperboard,faMusic} from '@fortawesome/free-solid-svg-icons';
+import { Outlet } from "react-router-dom";
 
 function Dashboard() {
 
-
+    const [ismenu,setIsMenu]=useState(true)
+    function handleToggle()
+    {
+        setIsMenu(!ismenu)
+    }
     useEffect(()=>{
 
     })
   return (
     <div className="Dashboard_Page">
-        <div className="Profile">
-            <div className="logo profile_container">
-                      <img src={logo} alt="Logo" className="Logo_Image" />
-                      <h4>Channel Name</h4>
+        <div className={ismenu?"Profile":"profile"}>
+            
+            <div className="Profile_Menu_and_container" >
+                <div>
+                    <button className="Menu_btn" onClick={handleToggle}><FontAwesomeIcon icon={faBars} size="2xl"/></button>
+                </div>
+                <div className="logo profile_container">
+                    {/* <img src={logo} alt="Logo" className="Logo_Image" />
+                    <h4>Channel Name</h4> */}
+                </div>
             </div>
+            {ismenu?
             <div className="HambourgeMenu">
             <ul>
                     <li> <FontAwesomeIcon icon={faHouse} />Home</li>
@@ -38,14 +50,24 @@ function Dashboard() {
                     <li> <FontAwesomeIcon icon={faNewspaper} /> News</li>
                     <li> <FontAwesomeIcon icon={faTrophy} /> Sports</li>
                     </ul>
-            </div>
+            </div>:
+                <div className="HambourgeMenu" style={{padding:"20px"}}>
+                    <ul className="lists">
+                        <hr /><li> <FontAwesomeIcon icon={faHouse} size="2xl"/></li><hr />
+                        <li> <FontAwesomeIcon icon={faCirclePlay} size="2xl"/> </li><hr />
+                        <li> <FontAwesomeIcon icon={faArrowTrendUp} size="2xl"/> </li><hr />
+                        <li> <FontAwesomeIcon icon={faMusic} size="2xl"/> </li><hr />
+                        <li> <FontAwesomeIcon icon={faClapperboard}size="2xl" /> </li><hr />
+                    </ul>
+                </div>
+            }
         </div>
-        <div className="content">
+        <div className={ismenu?"content":"Content"}>
             <div>
                 <Header/>
             </div>
-            <div>
-                content
+            <div className="Videos-content">
+                <Outlet/>
             </div>
         </div>
     </div>

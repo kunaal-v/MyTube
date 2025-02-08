@@ -10,7 +10,7 @@ function MyVideoPreview(props) {
     const video=props.video;
   return (
     <div className="MyVideo_container">
-        <Link to={`/videoDetails/${video._id}`}><div><img src={video.thubmailUrl} alt=""  width="150px" height="80px" border="1px solid black"/></div></Link>
+        <Link to={`/dashboard/videoDetails/${video._id}`}><div><img src={video.thubmailUrl} alt=""  width="150px" height="80px" border="1px solid black"/></div></Link>
         <div>
             <p>{video.title}</p>
             <p>{video.description}</p>
