@@ -3,10 +3,14 @@ import commentModel from "../Models/Comment.Model.js";
 
 export async function addComment(req,res) {
     try {
-        return res.status(500).json({body:req.body})
+        
         const user=req.user;
         const videoId=req.params.id;
         const {text}=req.body
+        if(req.body)
+        {
+            return res.status(500).json({body:req.body})
+        }
         const newComment= new commentModel({
             _id:new mongoose.Types.ObjectId,
             user_id:user._id,
