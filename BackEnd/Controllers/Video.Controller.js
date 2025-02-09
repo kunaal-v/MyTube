@@ -96,7 +96,7 @@ export async function deleteVideo(req,res)
         const user=req.user;
         const videoId=req.params.id;
         const video=await videoModel.findById(videoId);
-        if(user._id==video.user_id)
+        if(user._id.toString()==video.user_id.toString())
         {
             await cloudinary.uploader.destroy(video.thubmailId)
             await cloudinary.uploader.destroy(video.videoId,{resource_type:"video"})
