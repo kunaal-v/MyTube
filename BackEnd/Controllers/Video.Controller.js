@@ -69,7 +69,7 @@ export async function updateVideo(req,res){
                     thubmailUrl:updatedThubmail.secure_url,
                 },{new:true})
                 const savedVideo= await updatedVideo.save();
-                res.status(200).json([{message:"video updated"},{video:savedVideo}])
+                return res.status(200).json([{message:"video updated"},{video:savedVideo}])
 
             }
             const updatedVideo = await videoModel.findByIdAndUpdate(videoId,{
