@@ -14,7 +14,10 @@ import EditVideo from "./Components/EditVideo";
 
 function App() {
 const myRoutes=createBrowserRouter([
-  {path:"/",element:<Dashboard/>},
+  {path:"/",element:<Dashboard/>,children:[
+    {path:"",element:<AllVideos/>},
+    {path:"videoDetails/:id",element:<VideoDetails/>},
+  ]},
   {path:"/signUp",element:<SignUp/>},
   {path:"/logIn",element:<LogIn/>},
   {path:"/CreateChannel",element:<CreateChannel/>},
