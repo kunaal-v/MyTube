@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import axios from "axios";
+import { useState } from "react";
+
 
 MyVideoPreview.propTypes={
     video:PropTypes.object,
@@ -9,25 +11,36 @@ MyVideoPreview.propTypes={
 };
 
 function MyVideoPreview(props) {
-
+    const [isLoading,setIsLoading]=useState(false);
+    const video=props.video;
     function handleDeleteVideo(videoId)
     {
-        const accessToken=localStorage.getItem("accessToken")
+        const value=confirm("You will not see the video on you channel after deleting")
+        if(value)
+        {
+            setIsLoading(true)
+            const accessToken=localStorage.getItem("accessToken")
         axios.delete(`https://mytube-jjn3.onrender.com/${videoId}`,{
             headers: {
                 Authorization: `JWT ${accessToken}`,
             },
             
         })
-        .then((res)=>console.log(res))
-        .catch((err)=>console.log("err",err))
-        // alert("video deleted"+video._id)
+        .then((res)=>{console.log(res)
+            setIsLoading(false)
+            if(res.data[0].message=="video deleted"){
+                // alert("video deleted")
+                window.location.reload();
+            }
+        })
+        .catch((err)=>{console.log("err",err)
+            setIsLoading(false)
+        })
+        }
+        
     }
-    function handleEditVideo()
-    {
-        alert("Video updated"+video._id)
-    }
-    const video=props.video;
+   
+    
   return (
     <div className="MyVideo_container">
         <Link to={`/dashboard/videoDetails/${video._id}`}><div><img src={video.thubmailUrl} alt=""  width="150px" height="80px" border="1px solid black"/></div></Link>
@@ -40,8 +53,10 @@ function MyVideoPreview(props) {
             <p>{moment(video.createdAt).fromNow()}</p>
         </div>
         <div > 
-            <button className="Subscribe_btn" onClick={handleEditVideo}>Edit</button>
-            <button className="Subscribe_btn" onClick={()=>handleDeleteVideo(video._id)}style={{marginLeft:"10px"}}>Delete</button>
+            
+            <Link to={`/profile/editVideo/${video._id}`}><button className="Subscribe_btn">Edit</button></Link>
+            
+            <button className="Subscribe_btn" onClick={()=>handleDeleteVideo(video._id)}style={{marginLeft:"10px"}}>{isLoading?"Deleting...":"Delete"}</button>
         </div>
     </div>
   )

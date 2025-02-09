@@ -10,6 +10,7 @@ import UploadVideo from "./Components/UploadVideo";
 import VideoDetails from "./Components/VideoDetails";
 import CreateChannel from "./Components/CreateChannel";
 import AllVideos from "./Components/AllVideos";
+import EditVideo from "./Components/EditVideo";
 
 function App() {
 const myRoutes=createBrowserRouter([
@@ -24,7 +25,8 @@ const myRoutes=createBrowserRouter([
   {path:"/profile",element:<Profile/>,children:[
     {path:"mychannel",element:<MyChannel/>},
     {path:"myvideos",element:<MyVideos/>},
-    {path:"uploadvideo",element:<UploadVideo/>}
+    {path:"uploadvideo",element:<UploadVideo/>},
+    {path:"editVideo/:id",element:<EditVideo/>}
   ]},
   
 ]);

@@ -6,7 +6,7 @@ function MyChannel() {
     // const [SignIn,setSignIn]=useState(false)
     const [isChannel,setIsChannel]=useState(false);
     const [logo,setLogo]=useState("");
-    const [profile,setProfile]=useState("");
+    const [profile,setProfile]=useState(null);
     const [userName,setUserName]=useState("");
     const [email,setEmail]=useState("");
     const [channelName,setChannelName]=useState("")
