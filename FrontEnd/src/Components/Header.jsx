@@ -8,15 +8,19 @@ function Header (){
     const [SignIn,setSignIn]=useState(false)
     const [isChannel,setIsChannel]=useState(false);
     const [imageurl,setImageUrl]=useState("");
+    const [searchedText,setSearchedText]=useState("")
     function handleSearch(e){
         e.preventDefault();
+        setSearchedText(e.target.value)
         axios.get("https://mytube-jjn3.onrender.com/allVideos")
         .then((res) => {
             // setIsLoading(false)
             console.log(res)
             if(res.data.allvideos){
                 // alert("video fetched successfully")
-                console.log(res.data.allvideos)
+                console.log("header",res.data.allvideos)
+                const filteredVideos=res.data.allvideos.filter((video)=>video.title.toLowerCase().includes(searchedText.toLowerCase()))
+                console.log(filteredVideos);
                 // setVideos(res.data.allvideos)
             }
             console.log("Response:", res);
@@ -66,7 +70,7 @@ function Header (){
         <div >
             <form onSubmit={handleSearch} style={{display:"flex" , flexWrap:"nowrap"}}>
                 <label htmlFor="search"></label>
-                <input type="text" name="search" id="search_input" />
+                <input type="text" name="search" id="search_input" onChange={(e)=>handleSearch(e)}/>
                 <button className="search_btn" type="submit"> <FontAwesomeIcon icon={faMagnifyingGlass} size="sm" style={{color: "#ffffff",}} /></button>
             </form>
         </div>
