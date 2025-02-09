@@ -555,3 +555,20 @@ li{list-style: none;}
   border-radius: 50%;
   border: 1px solid #e75555;
 }
+.UploadVideo_message_container{
+  width: 50%;
+  height: 50vh;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 15px white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+.UploadVideo_message{
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}

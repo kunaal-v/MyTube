@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect,useMemo } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown,faShare} from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp, faThumbsDown,faShare,faAnglesRight} from '@fortawesome/free-solid-svg-icons';
 import MyVideos from "./MyVideos";
 import axios from "axios";
 import Comment from "./Comment";
@@ -198,7 +198,12 @@ function VideoDetails() {
                 </div>
           </div>
           <div className="StaticSideVideoDetails">
-            <MyVideos/>
+            <div style={{backgroundColor:"#e75555", padding:"10px", color:"white"}}>
+                Your Videos<FontAwesomeIcon icon={faAnglesRight} />
+            </div>
+            <div>
+              <MyVideos/>
+            </div>
           </div>
         </div>
         

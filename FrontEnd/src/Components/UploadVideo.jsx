@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useState } from "react"
+import { useState,useEffect } from "react"
+import { Link } from "react-router-dom";
 
 function UploadVideo() {
     const [title, setTitle] = useState("");
@@ -10,6 +11,21 @@ function UploadVideo() {
     const [thumbnail, setThumbnail] = useState(null);
     const [loading, setLoading] = useState(false);
     const [image, setImage] = useState("");
+
+    const [isChannel,setIsChannel]=useState(false);
+    useEffect(()=>
+    {
+        const accessToken=localStorage.getItem("accessToken");
+        axios.get("https://mytube-jjn3.onrender.com/user",{
+            headers: {
+                Authorization: `JWT ${accessToken}`,
+            }})
+        .then(res=>{
+            if(res.data.user?.channelName){
+                setIsChannel(true);
+            }
+        })
+    },[])
 
     function handleVideo(e) {
         const videoFile = e.target.files[0];
@@ -66,7 +82,7 @@ function UploadVideo() {
 
     return (
         <div className="UploadVideo_Page">
-            <h2>Upload Video</h2>
+            {isChannel?<div><h2>Upload Video</h2>
             <form onSubmit={handleUploadVideo} className="UploadVideo_form">
                 <input
                     type="text"
@@ -110,7 +126,16 @@ function UploadVideo() {
                 {image && <img src={image} alt="Thumbnail" className="ThumbnailPreview" />}
                 
                 <button type="submit">{loading ? "Uploading..." : "Upload"}</button>
-            </form>
+            </form></div>
+            :
+            <div className="UploadVideo_message_container">
+                <div className="UploadVideo_message">
+                    Create Your channel to upload the videos
+                </div>
+                <div style={{display:"flex", justifyContent:"center"}} >
+                    <Link to="/CreateChannel"><button className="Subscribe_btn">Create Channel</button></Link>
+                </div>
+            </div>}
         </div>
     );
 }
