@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 // CORS Configuration
 const corsOptions = {
-  origin: ['http://localhost:5173'], // Allow frontend running on localhost:5173
+  origin: ['http://localhost:5174'], // Allow frontend running on localhost:5173
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
