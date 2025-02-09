@@ -54,7 +54,7 @@ export async function updateVideo(req,res){
         const {title, category, description,tags}=req.body;
         const videoId=req.params.id;
         const video=await videoModel.findById(videoId);
-        if(user._id==video.user_id)
+        if(user._id.toString()==video.user_id.toString())
         {
             if(req.files)
             {
