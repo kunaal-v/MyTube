@@ -279,6 +279,7 @@ a:active{
 .UploadVideo_form{
   width: 90%;
   height: 80vh;
+  background-color: #0055ff;
   display: flex;
   flex-direction: column;
   padding: 20px;

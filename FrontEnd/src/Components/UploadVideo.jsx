@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState,useEffect } from "react"
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function UploadVideo() {
     const [title, setTitle] = useState("");
@@ -11,6 +12,7 @@ function UploadVideo() {
     const [thumbnail, setThumbnail] = useState(null);
     const [loading, setLoading] = useState(false);
     const [image, setImage] = useState("");
+    const navigate=useNavigate();
 
     const [isChannel,setIsChannel]=useState(false);
     useEffect(()=>
@@ -70,6 +72,7 @@ function UploadVideo() {
         .then((res) => {
             if(res.data[0].message=="Video uploaded successfully"){
                 alert("Video uploaded successfully")
+                navigate("/profile/mychannel")
             }
             console.log("Response:", res);
             setLoading(false);
@@ -82,7 +85,7 @@ function UploadVideo() {
 
     return (
         <div className="UploadVideo_Page">
-            {isChannel?<div><h2>Upload Video</h2>
+            {isChannel?<div style={{width:"100%", display:"flex", flexDirection:'column',alignItems:"center"}}><h2>Upload Video</h2>
             <form onSubmit={handleUploadVideo} className="UploadVideo_form">
                 <input
                     type="text"
@@ -105,6 +108,9 @@ function UploadVideo() {
                     <option value="Study">Study</option>
                     <option value="Games">Games</option>
                     <option value="Technology">Technology</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Developers">Developers</option>
+                    <option value="Songs">Songs</option>
                     <option value="IT">IT</option>
                     <option value="Web Developer">Web Developer</option>
                     <option value="MERN Full Stack Developer">MERN Full Stack Developer</option>

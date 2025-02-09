@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import MyVideoPreview from "./MyVideoPreview";
+import { Link } from "react-router-dom";
 function MyVideos() {
 
     const [videos,setVideos]=useState([]);
@@ -52,6 +53,14 @@ function MyVideos() {
     <div className="MyVideos_Page">
         {isChannel?<div>
             <h1>{isLoading&&"Loading...."}</h1>
+            {!isLoading&&videos.length==0&&<div>
+                <div>
+                You have not uploaded any video yet
+                </div>
+                <div>
+                <Link to="/profile/uploadVideo"><button className="Subscribe_btn">Upload Video</button></Link>
+                </div>
+                </div>}
             {videos.length!=0&&videos.map((video)=> {
         return <li key={video._id}><MyVideoPreview video={video}/></li>
        })}
