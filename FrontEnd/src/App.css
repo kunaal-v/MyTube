@@ -582,3 +582,551 @@ li{list-style: none;}
   justify-content: center;
   font-size: 25px;
 }
+@media (max-width: 767px) {
+  .SignUp_Page{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right, #ffde59,#e75555,#0c4897);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .SignUp_form{
+    width: 50%;
+    height: 70vh;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 1px 1px 15px white;
+    
+  }
+  .SignUp_FormInputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  .Logo_Image{
+    height: 70px;
+    width: 100px;
+    /* padding: 5px; */
+  }
+  
+  .SignUp_form input{
+    width: 80%;
+    padding: 10px;
+    border: none;
+    height: 50px;
+    /* background-color: rgb(247, 244, 244); */
+    border-radius: 19px;
+    overflow: hidden;
+    font-size: 17px;
+  }
+  .SignUp_form button{
+    /* height: 50px; */
+    padding: 10px;
+    border: none;
+    width: auto;
+    background-image: linear-gradient(to right, #ffde59,#e75555);
+    color: rgb(50, 47, 47);
+    border-radius: 20px;
+    font-size: 17px;
+  }
+  
+  .Preview_Image{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+  }
+  
+  a{
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+  }
+  
+  .Dashboard_Page{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+  }
+  
+  .Profile{
+    width: 13%;
+    /* border: 5px solid rgb(231, 228, 228); */
+    padding: 10px;
+    overflow: scroll;
+    margin-top: 20px;
+    }
+    .profile{
+      width: 8%;
+      /* border: 5px solid rgb(231, 228, 228); */
+      padding: 10px;
+      overflow: scroll;
+      margin-top: 20px;
+      }
+  .Profile_Menu_and_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .content{
+    width: 87%;
+    /* border: 1px solid black; */
+    padding: 10px;
+  }
+  
+  .Content{
+    width: 92%;
+    /* border: 1px solid black; */
+    padding: 10px;
+  }
+  .Videos-content{
+    display: flex;
+    flex-direction: row;
+    /* background-color: #0055ff; */
+  }
+  .Navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+  }
+  .nav_btns{
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+  }
+  .SignIn_btn,.CreateChannel_btn{
+    background-color: white;
+    border: 1px solid #0055ff;
+    color: #0055ff;
+    padding: 4px;
+    border-radius: 15px;
+    
+  }
+  .Profile_btn{
+    background-color: white;
+    border: none;
+  }
+  #search_input{
+    border: 1px solid rgb(173, 171, 171);
+    padding: 5px;
+    border-radius: 25px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+    /* width: 500px; */
+    padding-left: 13px;
+    font-size: 20px;
+  }
+  #search_input:focus {
+    border: 1px solid #0055ff;
+    background-color: #e8fafb;  
+  }
+  .Filter_btn{
+    padding: 10px;
+    border-radius: 40px;
+    flex: 1;
+  }
+  .Filter_btns_container{
+    display: flex;
+    width: 100%;
+    gap:50px
+  }
+  
+  .search_btn{
+    border: 1px solid rgb(173, 171, 171);
+    background-color: rgb(50, 48, 58);
+    padding: 5px;
+    padding-left:20px;
+    padding-right: 20px;
+    border-radius: 25px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    /* border-left: none; */
+    font-size: 20px;
+  }
+  .Menu_btn{
+    background-color: white;
+    border: none;
+    padding: 8px; 
+    margin-right: 15px;
+    
+  }
+  .Menu_btn:active{
+    background-color: rgb(241, 241, 241);
+    border-radius: 10px;
+  }
+  
+  .profile_container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+  ul li {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+  }
+  ul li:hover{
+    background-color: #e75555
+  }
+  ul li:active{
+    background-color: #ecbf1c;
+  }
+  .HambourgeMenu{
+    width: 100%;
+  }
+  
+  .Profile_container{
+  display: flex;
+  flex-direction: column; 
+  border-right: 1px solid gray;
+  height: 72vh;
+  margin-top: 50px;
+  padding-right: 10px;
+  gap: 10px;
+  padding-top: 20px;
+  }
+  .Profile_container a{
+    padding: 10px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* text-align: center; */
+  }
+  
+  
+  .active-a{
+    color: black;
+    text-decoration: none;
+    background-color: #e75555;
+    border-radius: 10px;
+  }
+  a:active{
+    background-color: #ecbf1c;
+    border-radius: 10px;
+  }
+  .UploadVideo_Page{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-image: linear-gradient(to right, #ffde59,#e75555,#0c4897);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .UploadVideo_form{
+    width: 90%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+    box-shadow: 1px 1px 10px gray;
+    font-size: 15px;
+    border-radius: 20px;
+    background-color: white;
+  }
+  .UploadVideo_form input,textarea,select{
+    padding: 10px;
+    height: 50px;
+    font-size: 15px;
+    /* border: none; */
+    border-radius: 10px;
+  
+  }
+  .UploadVideo_form button{
+    height: 50px;
+    background-color: #e75555;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .ThumbnailPreview{
+        width: 100px;
+        height: 60px;
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: 5px;
+  }
+  
+  li{list-style: none;}
+  
+  .MyVideo_container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    /* background-color: blue; */
+  }
+  .MyVideo_container:hover{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: rgb(241, 241, 241);
+  }
+  
+  .uderVideo{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .aboutChannel{
+    display: flex;
+    gap: 10px;
+    /* align-items: center; */
+  }
+  .ChannelLogo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #e75555;
+  }
+  .channelDetails{
+    display: flex;
+    flex-direction: column;
+  }
+  .description_container{
+    background-color: rgb(241, 241, 241);
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+  .description{
+    text-align: justify;
+    line-height: 20px;
+  }
+  
+  .view_more_less{
+    cursor: pointer;
+    color: #0055ff
+  }
+  
+  .like_btn{
+    border: 1px solid rgb(173, 171, 171);
+    background-color: rgb(241, 241, 241);
+    padding: 5px;
+    border-radius: 20px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .dislike_btn{
+    border: 1px solid  rgb(173, 171, 171);
+    background-color: rgb(241, 241, 241);
+    padding: 5px;
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-left: none;
+  }
+  .share_btn{
+    border: 1px solid  rgb(173, 171, 171);
+    background-color: rgb(241, 241, 241);
+    padding: 5px;
+    border-radius: 20px;
+  }
+  
+  .Subscribe_btn{
+    border: none;
+    background-color: #e75555;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  .Subscribe_btn:active{
+    background-color: #ecbf1c;
+  }
+  
+  .lists{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100px;
+  }
+  
+  .lists li{
+    text-align: center;
+    gap: 0px;
+    padding: 20px;
+    /* background-color: yellow; */
+  }
+  .ProfileImage{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e75555;
+    border-radius: 50%;
+  }
+  .profileLink{
+    border: none;
+  }
+  
+  .Myprofile_container{
+    width: 50%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px gray;
+    background-color: white;
+  }
+  .Myprofile_Page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to right, #ffde59,#e75555,#0c4897);
+    
+  }
+  .Myprofile_upper{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .Myprofile_lower{
+    display: flex;
+    justify-content: center;
+  }
+  .Myprofile_details{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .MyProfileImage{
+    height: 150px;
+    width: 150px;
+    border: 4px solid #e75555;
+    border-radius: 50%;
+  }
+  
+  .MyChannel_container{
+    height: 80vh;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px gray;
+    background-color: white;
+  }
+  .Video_page{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* background-color: #0055ff; */
+  }
+  .video_Page_preview{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+  }
+  .video_details_page{
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px;
+  }
+  .video_container{
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+  }
+  .channelImageWithVideo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #e75555;
+  }
+  .videoDetails_home{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  /* .StaticSideVideoDetails{
+  
+  } */
+  
+  .comment_container{
+    display: flex;
+    gap: 5px;
+  }
+  .comment_input{
+    width: 90%;
+    height: 50px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid rgb(173, 171, 171);
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .Comment_btn{
+    width: 10%;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #e75555;
+    color: white;
+  }
+  
+  .Comment_container{
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .comment_Profile{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #e75555;
+  }
+  .UploadVideo_message_container{
+    width: 50%;
+    height: 50vh;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 15px white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  
+  }
+  .UploadVideo_message{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+  }
+}
+
+/* Tablets (portrait) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet styles */
+}
