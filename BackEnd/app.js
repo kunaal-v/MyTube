@@ -22,12 +22,12 @@ mongoose.connect(process.env.MONGO_URI)
   });
 
 // CORS Configuration
-const corsOptions = {
-  origin: ['https://mytube-k.onrender.com/'], // Allow frontend running on localhost:5173
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-};
-app.use(cors(corsOptions)); // Apply CORS middleware with options
+// const corsOptions = {
+//   origin: ['https://mytube-k.onrender.com/'], // Allow frontend running on localhost:5173
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+// };
+app.use(cors()); // Apply CORS middleware with options
 
 // Body parsing and file upload handling
 app.use(bodyParser.json());
