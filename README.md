@@ -1,3 +1,5 @@
+https://github.com/kunaal-v/MyTube.git
+
 I have created a YouTube clone project and I named it as myTube.
 1. On the homepage there is a header and a Hamburg menu and it toggles on every click and in the body part a video section will come.
 2. In the video section on click on a video, a new page will open and video will play and on the bottom of the video there is a title of the video, user who posted that video with their profile and channel name. There are like, dislike, share and subscribe buttons below.
